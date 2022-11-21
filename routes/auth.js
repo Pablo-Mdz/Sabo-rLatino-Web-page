@@ -52,6 +52,7 @@ router.get("/auth/login", (req, res, next) => {
 
 router.post("/auth/login", (req, res, next) => {
     const { username, password } = req.body
+    console.log(username)
 
     User.findOne({ username })
         .then(userFromDB => {
@@ -59,7 +60,6 @@ router.post("/auth/login", (req, res, next) => {
                 res.render("login", { message: "Wrong credentials" })
                 return
             }
-
             // User found in database
             // Check if password from input form matches password from database
             if (bcrypt.compareSync(password, userFromDB.password)) {
