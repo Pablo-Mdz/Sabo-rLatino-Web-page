@@ -2,7 +2,7 @@
 // https://www.npmjs.com/package/dotenv
 require('dotenv/config');
 
-// ℹ️ Connects to the database
+// ℹ️ Connects to the database b
 require('./db');
 
 // Handles http requests (express is node js framework)
@@ -37,7 +37,7 @@ app.use(
 )
 // End of session configuration
 // 👇 Start handling routes here
-const indexRoutes = require("./routes/index.routes");
+const indexRoutes = require("./routes/restaurants.route");
 app.use("/", indexRoutes);
 
 const auth = require("./routes/auth");

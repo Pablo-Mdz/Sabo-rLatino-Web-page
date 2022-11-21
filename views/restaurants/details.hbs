@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Conocé {{restaurants.company}}</h2>
+    <p>{{restaurants.description}}</p>
+    <p>{{restaurants.speciality}}</p>
+    <p>{{restaurants.tel}}</p>
+    <p>{{restaurants.url}}</p>
+    <p>{{restaurants.email}}</p>
+    <p>{{restaurants.street}}</p>
+    <p>{{restaurants.houseNumber}}</p>
+    <p>{{restaurants.area}}</p>
+
+    
+    <a href="/restaurants/{{restaurant._id}}/edit">Edit {{restaurant.name}}</a>
+    <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
+        <button type="submit">Delete {{restaurant.name}}</button>
+    </form>
+    <a href="/restaurants">Volver a todos los Servicios</a>
+</div>
