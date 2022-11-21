@@ -8,7 +8,7 @@ router.get('/restaurants/create', (req, res) => {
 
 router.post('/restaurants/create', (req, res) => {
     const {name, description, speciality, tel, url, email, street, houseNumber, area, /* owner */ } = req.body
-
+    console.log(req.body)
     Restaurant.create({
         name,
         description,
@@ -19,10 +19,9 @@ router.post('/restaurants/create', (req, res) => {
         street,
         houseNumber,
         area,
-        /* owner: req.user._id */
     })
-        .then(createdRestaurant => res.redirect('/restaurants'))
-        .catch(err => ("restaurants/new"))
+        .then(createdRestaurant => res.redirect('/profile'))
+        .catch(err => res.render("restaurants/new"))
 });
 
 //get restaurant
