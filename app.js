@@ -37,8 +37,13 @@ app.use(
 )
 // End of session configuration
 // 👇 Start handling routes here
-const indexRoutes = require("./routes/restaurants.route");
+
+
+const indexRoutes = require("./routes/index");
 app.use("/", indexRoutes);
+
+const restaurantsRoutes = require("./routes/restaurants.route");
+app.use("/", restaurantsRoutes);
 
 const auth = require("./routes/auth");
 app.use("/", auth);

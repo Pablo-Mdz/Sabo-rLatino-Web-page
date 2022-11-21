@@ -42,7 +42,7 @@ router.get("/restaurants/:id", (req, res) => {
 })
 
 //delete restaurant
-router.get('restaurants/:id/delete', (req, res) => {
+router.get('/restaurants/:id/delete', (req, res) => {
 	const id = req.params.id
 	/* const query = { _id: id }
 	if (req.user.role !== 'admin') {
