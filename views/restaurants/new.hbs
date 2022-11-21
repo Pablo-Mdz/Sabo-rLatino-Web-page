@@ -1,31 +1,36 @@
 {{!-- <h1>Hola {{user.name}}</h1> --}}
 <h2>Add your Restaurant here</h2>
-<form action="/restaurants" method="POST">
+<form action="/restaurants/create" method="POST">
     <label for="name">Name:</label>
-    <input type="text" name="name" required>
+    <input type="text" name="name" />
 
     <label for="speciality">Speciality:</label>
-    <input type="text" name="speciality" required>
-    
-    <textarea name="description" id="" cols="30" rows="10">Descripcion</textarea>
+    <input type="text" name="speciality" />
 
-    <label for="tel">tel:</label>
-    <input type="text" name="tel" required>
+    <textarea
+        name="description"
+        id=""
+        cols="30"
+        rows="10"
+    >Descripcion</textarea>
+
+    <label for="tel">Tel:</label>
+    <input type="text" placeholder="telefono" name="tel" />
 
     <label for="url">URL:</label>
-    <input type="text" name="url" required>
+    <input type="text" name="url" />
 
     <label for="email">email:</label>
-    <input type="text" name="email" required>
+    <input type="text" name="email" />
 
     <label for="street">street:</label>
-    <input type="text" name="street" required>
+    <input type="text" name="street" />
 
     <label for="houseNumber">House number:</label>
-    <input type="number" name="houseNumber" required>
+    <input type="number" name="houseNumber" />
 
     <label for="area">Area:</label>
-    <input type="text" name="area" required>
+    <input type="text" name="area" />
 
     <button type="submit">Add</button>
 </form>
