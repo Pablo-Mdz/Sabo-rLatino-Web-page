@@ -1,31 +1,102 @@
-body {
-    color: rgb(18, 123, 216);
+/* Hex: #ffa0a0
+RGB: (255,160,160)
+CMYK: (0,37,37,0)
+Pantone Red 0331 C
+Hex: #FCAEBB
+RGB: (252,174,187)
+Pantone 162 C
+Hex: #FFBE9F
+RGB: (255,190,159)
+Pantone 169 C
+Hex: #FFB3AB
+RGB: (255,179,171)
+Pantone 176 C
+Hex: #FFB1BB
+RGB: (255,177,187)
+Pantone 183 C
+Hex: #FC9BB3
+RGB: (252,155,179)
+Pantone 189 C
+Hex: #F8A3BC
+RGB: (248,163,188)
+Pantone 197 C
+Hex: #E89CAE
+RGB: (232,156,174)
+Pantone 487 C
+Hex: #EAA794
+RGB: (234,167,148)
+Pantone 494 C
+Hex: #E9A2B2
+RGB: (233,162,178)
+Pantone 700 C
+Hex: #F2ACB9
+RGB: (242,172,185)
+Pantone 708 C
+Hex: #F890A5
+RGB: (248,144,165)
+Pantone 1555 C
+Hex: #FFB990
+RGB: (255,185,144)
+Pantone 1625 C
+Hex: #FFA38B
+RGB: (255,163,139)
+Pantone 1765 C
+Hex: #FFA3B5
+RGB: (255,163,181)
+Pantone 1775 C
+Hex: #FF8DA1
+RGB: (255,141,161)
+Pantone 1905 C
+Hex: #F59BBB
+RGB: (245,155,187)
+Pantone 2022 C
+Hex: #FAAA8D
+RGB: (250,170,141)
+Pantone 2339 C
+Hex: #F09491
+RGB: (240,148,145) */
 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+
+body {
+    color:black;
     box-sizing: border-box;
+    font-weight: lighter;
+    text-align: center;
     margin: 0;
     padding: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .titles {
     /* max-width: 100%; */
     height: 500px;
-    background-image: url("../images/img2.jpeg");
-    background-size: cover;
+    background-color: white;
+    text-align: center;
     background-position: center;
     border: none;
     margin-top: 0;
 }
 
 .titles h1 {
-    color: white;
-    text-shadow: 5px 5px 20px black;
     font-size: 50px;
     display: flex;
     justify-content: space-around;
     padding-top: 40px;
 }
 
+#container-fluid {
+    color: rgb(252,174,187);
+}
+
+p {
+    margin: 30px;
+}
+
+img {
+    width: 20%;
+}
 /* body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
