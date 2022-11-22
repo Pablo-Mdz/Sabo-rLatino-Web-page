@@ -62,7 +62,7 @@ router.get("/restaurants/:id/edit", async (req, res) => {
     const id = req.params.id
     // Restaurant.findById(id)
     try {
-        // const rest = await Restaurant.findById(id).populate("restaurants")
+        // const rest = await Restaurant.findById(id).populate("User")
         const restaurant = await Restaurant.findById(id)
         console.log(restaurant)
         res.render("restaurants/edit", restaurant)
@@ -72,9 +72,9 @@ router.get("/restaurants/:id/edit", async (req, res) => {
 
 })
 
-router.post("/restaurants/:id", (req, res) => {
+router.post("/restaurants/:id", (req, res, next) => {
     const id = req.params.id
-    const { name, description, speciality, tel, url, email, street, houseNumber, area /* owner */ } = req.body
+    const { name, description, speciality, tel, url, email, street, houseNumber, area, owner } = req.body
 
     const restaurant = {
         name,
@@ -86,11 +86,20 @@ router.post("/restaurants/:id", (req, res) => {
         street,
         houseNumber,
         area,
+        owner,
     }
+    Restaurant.findById(id)
+        .then(data => {
 
-    Restaurant.findByIdAndUpdate(id, restaurant)
-        .then(createdRestaurant => {
-            res.redirect(`/`)
+            console.log(req.session.user)
+            if (data.owner._id.toString() !== req.session.user._id) {
+                res.render("restaurants/rest", { message: "Oops! you can not Edit." })
+            } else {
+                Restaurant.findByIdAndUpdate(id, restaurant)
+                    .then(createdRestaurant => {
+                        res.redirect(`/`)
+                    })
+            }
         })
         .catch(err => {
             next(err)
@@ -112,10 +121,6 @@ router.post('/restaurants/:id/delete', (req, res) => {
             }
         })
         .catch(err => console.log(err))
-    // const query = { _id: id }
-    // if (req.user.role !== 'admin') {
-    //     query.owner = req.user._id
-    //  } 
 });
 
 module.exports = router;
