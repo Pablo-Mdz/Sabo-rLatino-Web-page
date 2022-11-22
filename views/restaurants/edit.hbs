@@ -1,32 +1,41 @@
-<h2>Add your Restaurant here</h2>
+<h2>Edit your Restaurant here</h2>
 <div>
-<form action="/restaurants" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" name="name" required>
-
-    <label for="speciality">Speciality:</label>
-    <input type="text" name="speciality" required>
+    <form action="/restaurants/{{_id}}" method="POST">
     
-    <textarea name="description" id="" cols="30" rows="10">Descripcion</textarea>
 
-    <label for="tel">tel:</label>
-    <input type="text" name="tel" required>
+        <label for="name">name:</label>
+        <input type="text" name="name" value="{{name}}" />
 
-    <label for="url">URL:</label>
-    <input type="text" name="url" required>
+        <label for="speciality">speciality:</label>
+        <input type="text" name="speciality" value="{{speciality}}" />
 
-    <label for="email">email:</label>
-    <input type="text" name="email" required>
+        <label for="description">Description:</label>
+        <textarea
+            name="description"
+            type="text"
+            cols="30"
+            rows="10"
+            value="{{description}}"
+        >Descripcion</textarea>
 
-    <label for="street">street:</label>
-    <input type="text" name="street" required>
+        <label for="url">URL:</label>
+        <input type="text" name="url" value="{{url}}" />
 
-    <label for="houseNumber">House number:</label>
-    <input type="number" name="houseNumber" required>
+        <label for="email">email:</label>
+        <input type="text" name="email" value="{{email}}" />
 
-    <label for="area">Area:</label>
-    <input type="text" name="area" required>
+        <label for="street">street:</label>
+        <input type="text" name="street" value="{{street}}" />
 
-    <button type="submit">Guardar</button>
+        <label for="houseNumber">House number:</label>
+        <input type="number" name="houseNumber" value="{{houseNumber}}" />
+
+        <label for="area">Area:</label>
+        <input type="text" name="area" value="{{area}}" />
+
+        <button type="submit" >Guardar</button>
     </form>
 </div>
+<form action="/restaurants/{{_id}}/delete" method="POST">
+        <button type="submit">Delete Restaurant</button>
+    </form>

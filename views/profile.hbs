@@ -1,27 +1,39 @@
 <div class="titles">
     <h1>My profile</h1>
     <h2>Hello, and wellcome {{user.username}}</h2>
+    <a href="/restaurants/read">Read your restaurant</a>
+    <a href="/restaurants/create">Add a restaurants</a>
+    <a href="/restaurants/rest">muestra Restaurantes</a>
 </div>
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="..." />
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title
-            and make up the bulk of the card's content.</p>
+
+
+
+
+
+<ul>
+    
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="..." />
+        <div class="card-body">
+            <h5 class="card-title">this is: {{name}}</h5>
+            <p class="card-text">Some quick example text to build on the card
+                title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
     </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-    </ul>
-    <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-    </div>
-</div>
+</ul> 
 
 <div class="hip">
     <a href="/auth/logout">Logout</a>
     <a href="/">Home</a>
     <img src="{{user.img}}" alt="" />
+
 </div>

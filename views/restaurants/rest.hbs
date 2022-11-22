@@ -1,6 +1,7 @@
 <div class="container">
     <ul>
         {{#each restaurant}}
+        <a href="/restaurants/{{this._id}}/edit">
             <li>Conocé :{{name}}</li>
             <li>Description: {{this.description}}</li>
             <li>Speciality: {{speciality}}</li>
@@ -9,14 +10,11 @@
             <li>Email: {{email}}</li>
             <li>Street: {{street}},{{houseNumber}} </li>
             <li>neighborhood {{area}}</li>
-
+            <hr/>
+            </a>
         {{/each}}
     </ul>
 
-    {{!-- <a href="/restaurants/{{restaurant._id}}/edit">Edit {{restaurant.name}}</a>
-    <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
-        <button type="submit">Delete {{restaurant.name}}</button>
-</form> --}}
-    <a href="/">Return Home</a>
-    <a href="/restaurants/{{_id}}/edit">Edit</a>
-</div>
+    {{#if message}}
+<h3 >{{message}}</h3>
+{{/if}}
