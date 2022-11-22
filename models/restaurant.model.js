@@ -6,15 +6,19 @@ const restaurantSchema = new Schema({
     speciality: String,
     tel: Number,
     url: String,
-    email: String,        
+    email: String,
     street: String,
     houseNumber: Number,
     area: String,
-    /* owner: {
+    owner: {
         type: Schema.Types.ObjectId,
         ref: "User"
-    } */
-})
+    },
+},
+    {
+        timestamps: true,
+    }
+)
 
 const Restaurant = model("Restaurant", restaurantSchema)
 module.exports = Restaurant;

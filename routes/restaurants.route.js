@@ -17,6 +17,7 @@ router.get('/restaurants/create', (req, res) => {
 
 
 router.post('/restaurants/create', (req, res) => {
+    const userId = req.session.user._id
     const { name, description, speciality, tel, url, email, street, houseNumber, area /* owner */ } = req.body
     console.log(req.body)
     Restaurant.create({
@@ -29,6 +30,7 @@ router.post('/restaurants/create', (req, res) => {
         street,
         houseNumber,
         area,
+        owner: userId
     })
         .then(createdRestaurant => res.redirect('/profile'))
         .catch(err => res.render("restaurants/new"))
@@ -41,26 +43,19 @@ router.get('/restaurants/rest', (req, res) => {
         .catch(err => console.log(err))
 });
 
+
+
+
 //get details
 router.get("/restaurants/:id", (req, res) => {
     const id = req.params.id
 
     Restaurant.findById(id)
+        .populate("User")
         .then(restaurant => res.render("restaurants/details", { restaurant }))
         .catch(err => console.log(err))
 })
 
-//delete restaurant
-router.get('/restaurants/:id/delete', (req, res) => {
-    const id = req.params.id
-    /* const query = { _id: id }
-    if (req.user.role !== 'admin') {
-        query.owner = req.user._id
-    } */
-    Restaurant.findByIdAndRemove(id)
-        .then(deletedRestaurant => res.redirect('/restaurants'))
-        .catch(err => console.log(err))
-});
 
 //edit service
 router.get("/restaurants/:id/edit", async (req, res) => {
@@ -91,7 +86,6 @@ router.post("/restaurants/:id", (req, res) => {
         street,
         houseNumber,
         area,
-        /* owner */
     }
 
     Restaurant.findByIdAndUpdate(id, restaurant)
@@ -102,5 +96,26 @@ router.post("/restaurants/:id", (req, res) => {
             next(err)
         })
 })
+
+//delete restaurant
+router.post('/restaurants/:id/delete', (req, res) => {
+    const id = req.params.id
+    Restaurant.findById(id)
+
+        .then(data => {
+            if (data.owner._id.toString() !== req.session.user._id) {
+                res.render("restaurants/rest", { message: "Oops! you can not delete." })
+            } else {
+
+                Restaurant.findByIdAndRemove(id)
+                    .then(deletedRestaurant => res.redirect('/profile'))
+            }
+        })
+        .catch(err => console.log(err))
+    // const query = { _id: id }
+    // if (req.user.role !== 'admin') {
+    //     query.owner = req.user._id
+    //  } 
+});
 
 module.exports = router;
