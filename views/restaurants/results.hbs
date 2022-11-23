@@ -1,0 +1,13 @@
+<h2>Your results</h2>
+
+{{#each restaurantsFound}}
+<br>
+<a href="/restaurants/results{{_id}}">
+  <p>{{this.name}}</p> 
+  <p>{{speciality}}</p> 
+  <p>{{area}}</p>
+</a>
+<br>
+{{/each}}
+
+<a href="/">Back to the Home Page</a>

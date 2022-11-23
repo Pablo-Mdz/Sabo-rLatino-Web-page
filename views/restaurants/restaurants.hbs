@@ -1,5 +1,6 @@
 <h2>Restaurantes Latinos</h2>
 {{#each restaurant}}
+	<h4>{{this.imgPath}}</h4>
 	<h4>{{this.name}}</h4>
 	<h4>{{this.description}}</h4>
     <h4>{{this.speciality}}</h4>
@@ -9,6 +10,7 @@
 	<h4>{{this.street}}</h4>
 	<h4>{{this.houseNumber}}</h4>
 	<h4>{{this.area}}</h4>
+
 
 	<a href="/this/{{_id}}/delete">Delete this Restaurant 🗑</a>
 {{/each}}

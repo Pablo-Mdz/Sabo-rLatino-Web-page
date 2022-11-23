@@ -10,6 +10,9 @@ const restaurantSchema = new Schema({
     street: String,
     houseNumber: Number,
     area: String,
+    imgName: String,
+	imgPath: String,
+	publicId: String,
     owner: {
         type: Schema.Types.ObjectId,
         ref: "User"

@@ -1,56 +1,9 @@
 {{!-- <h1>Hola {{user.name}}</h1> --}}
 <h2>Add your Restaurant here</h2>
 <a href="restaurants/edit">edit</a>
-<form action="/restaurants/create" class='container' method="POST">
-    {{!-- <label for="name">Name:</label>
-    <input type="text" name="name" /> --}}
-
-    {{!-- <label for="speciality">Speciality:</label>
-    <input type="text" name="speciality" /> --}}
-
-
-    {{!-- <label for="tel">Tel:</label>
-    <input type="text" placeholder="telefono" name="tel" /> --}}
-
-    {{!-- <label for="url">URL:</label>
-    <input type="text" name="url" /> --}}
-
-    {{!-- <label for="email">email:</label>
-    <input type="text" name="email" /> --}}
-
-    {{!-- <label for="street">street:</label>
-    <input type="text" name="street" /> --}}
-
-    {{!-- <label for="houseNumber">House number:</label>
-    <input type="number" name="houseNumber" /> --}}
-
-    {{!-- <label for="area">Area:</label>
-    <input type="text" name="area" /> --}}
-
-    {{!-- <button type="submit">Add</button>
-    <textarea
-        name="description"
-        id=""
-        cols="30"
-        rows="10"
-    >Descripcion</textarea> --}}
-</form>
- <section id="book-a-table" class="book-a-table">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Book a <span>Table</span></h2>
-         
-        </div>
-
-
-
-
-
-
 <div class="container">
     <form
-        action="/restaurants/create" class='container' method="POST">
+        action="/restaurants/create" class='container' method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
                 <input
@@ -93,6 +46,7 @@
                     data-rule="minlen:4"
                     data-msg="Please enter at least 4 chars"
                 />
+
                 <div class="validate"></div>
             </div>
 
@@ -135,6 +89,18 @@
                     type="text"
                     placeholder="area"
                     name="Area"
+                     class="form-control"
+                     data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                />
+                <div class="validate"></div>
+            </div>
+
+             <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input
+                    type="file"
+                    placeholder="file"
+                    name="Image"
                      class="form-control"
                      data-rule="minlen:4"
                     data-msg="Please enter at least 4 chars"

@@ -1,44 +1,20 @@
 
-
-
-
-{{!-- 
-<div class="container">
-    <ul>
-        {{#each restaurant}}
-        <a href="/restaurants/{{this._id}}/edit">
-            <li>Conocé :{{name}}</li>
-            <li>Description: {{this.description}}</li>
-            <li>Speciality: {{speciality}}</li>
-            <li>Tel. Number: {{tel}} </li>
-            <li>Web Site: {{url}}</li>
-            <li>Email: {{email}}</li>
-            <li>Street: {{street}},{{houseNumber}} </li>
-            <li>neighborhood {{area}}</li>
-            <hr/>
-            </a>
-        {{/each}}
-    </ul>
-
-    {{#if message}}
-<h3 >{{message}}</h3>
-{{/if}} --}}
-
 <div class="card" style="width: 30rem;">
     <ul>
          {{#each restaurant}}
   <img class="card-img-top" src="..." alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Restaurant: {{name}}</h5>
-    <p class="card-text">About: {{this.description}}</p>
+    <h5 class="card-title">{{name}}</h5>
+  	<img src={{this.imgPath}} alt="Image for" class="card-img">
+    <p class="card-text">{{this.description}}</p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Speciality: {{speciality}}</li>
-    <li class="list-group-item">Street: {{street}},{{houseNumber}}</li>
-    <li class="list-group-item">neighborhood {{area}}</li>
-    <li class="list-group-item">Tel. Number: {{tel}}</li>
-    <li class="list-group-item">Web Site: {{url}}</li>
-    <li class="list-group-item">Email: {{email}}</li>
+    <li class="list-group-item">{{speciality}}</li>
+    <li class="list-group-item">{{street}},{{houseNumber}}</li>
+    <li class="list-group-item">{{area}}</li>
+    <li class="list-group-item">{{tel}}</li>
+    <li class="list-group-item">{{url}}</li>
+    <li class="list-group-item">{{email}}</li> 
   </ul>
   <div class="card-body">
     <a href="restaurants/edit" class="card-link">Edit</a>

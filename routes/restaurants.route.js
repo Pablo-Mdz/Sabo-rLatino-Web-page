@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const Restaurant = require("../models/restaurant.model");
+const { uploader, cloudinary } = require("../config/cloudinary")
+const { isLoggedIn } = require('../middleware/route-guard')
 
 //create restaurant
 router.get('/restaurants/create', (req, res) => {
@@ -16,10 +18,13 @@ router.get('/restaurants/create', (req, res) => {
 // });
 
 
-router.post('/restaurants/create', (req, res) => {
+router.post('/restaurants/create', uploader.single("Image"), (req, res) => {
     const userId = req.session.user._id
     const { name, description, speciality, tel, url, email, street, houseNumber, area /* owner */ } = req.body
     console.log(req.body)
+    const imgName = req.file.originalname
+    const imgPath = req.file.path
+    const publicId = req.file.filename
     Restaurant.create({
         name,
         description,
@@ -30,6 +35,9 @@ router.post('/restaurants/create', (req, res) => {
         street,
         houseNumber,
         area,
+        imgName, 
+        imgPath, 
+        publicId,
         owner: userId
     })
         .then(createdRestaurant => res.redirect('/profile'))
@@ -44,6 +52,30 @@ router.get('/restaurants/rest', (req, res) => {
 });
 
 
+router.get('/restaurants/results', (req, res) => {
+    const query = req.query.q
+    console.log(query)
+    const restaurantsFound = []
+    Restaurant.find({ }) 
+    .then(restaurantsFromDB => {  
+      if(restaurantsFromDB === null){
+          res.render("restaurants/results", { message : 'Sorry, no results found'/* , isLoggedIn */})
+          return
+        } 
+        else {
+        for (let restaurant of restaurantsFromDB){ 
+            console.log(restaurant)
+          if(restaurant.name.includes(query)) { 
+            restaurantsFound.push(restaurant)
+          }
+          else if (restaurant.speciality.includes(query)) { 
+            restaurantsFound.push(restaurant)
+          }
+        } 
+        res.render("restaurants/results", {restaurantsFound: restaurantsFound /* , isLoggedIn */ }) 
+      }
+    })
+    })
 
 
 //get details
@@ -57,7 +89,7 @@ router.get("/restaurants/:id", (req, res) => {
 })
 
 
-//edit service get
+//edit restaurant
 router.get("/restaurants/:id/edit", async (req, res) => {
     const id = req.params.id
     Restaurant.findById(id)
@@ -71,6 +103,7 @@ router.get("/restaurants/:id/edit", async (req, res) => {
     }
 
 })
+
 //edit post
 router.post("/restaurants/:id", (req, res, next) => {
     const id = req.params.id
@@ -86,7 +119,7 @@ router.post("/restaurants/:id", (req, res, next) => {
         street,
         houseNumber,
         area,
-        owner,
+        owner: userId
     }
     Restaurant.findById(id)
         .then(data => {
@@ -122,4 +155,10 @@ router.post('/restaurants/:id/delete', (req, res) => {
         })
         .catch(err => console.log(err))
 });
+
+//search
+
+
+
+
 module.exports = router;

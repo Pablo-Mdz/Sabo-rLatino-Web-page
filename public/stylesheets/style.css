@@ -99,6 +99,13 @@ p {
 img {
     width: 20%;
 }
+
+#card-img {
+     width: 100%;
+     height: 15vw;
+     object-fit: cover;
+    }
+
 /* body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
