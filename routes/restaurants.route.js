@@ -123,7 +123,7 @@ router.post("/restaurants/:id", (req, res, next) => {
         street,
         houseNumber,
         area,
-        owner: userId
+        owner,
     }
     Restaurant.findById(id)
         .then(data => {
@@ -146,8 +146,8 @@ router.post("/restaurants/:id", (req, res, next) => {
 //delete restaurant
 router.post('/restaurants/:id/delete', (req, res) => {
     const id = req.params.id
+    console.log("here")
     Restaurant.findById(id)
-
         .then(data => {
             if (data.owner._id.toString() !== req.session.user._id) {
                 res.render("restaurants/rest", { message: "Oops! you can not delete." })
@@ -155,6 +155,7 @@ router.post('/restaurants/:id/delete', (req, res) => {
 
                 Restaurant.findByIdAndRemove(id)
                     .then(deletedRestaurant => res.redirect('/profile'))
+                    console.log(deletedRestaurant)
             }
         })
         .catch(err => console.log(err))

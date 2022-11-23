@@ -6,36 +6,39 @@
                     <div class="card-img-block">
                         <img
                             class="card-img-top"
-                            src="https://images.unsplash.com/photo-1517832207067-4db24a2ae47c"
-                            alt="Card image cap"
+                            src="{{restaurant.imgPath}}"
+                            alt="image"
                         />
                     </div>
                     <div class="card-body pt-0">
-                        <h1 class="card-title"> <strong>{{restaurant.name}}</strong></h1>
+                        <h4 class="card-title">
+                            <strong>{{restaurant.name}}</strong></h4>
                         <p class="card-text">
-                            {{this.description}}</p>
-                        <p><strong>Description:</strong>
                             {{restaurant.description}}</p>
-                        <p><strong>Speciality:</strong>
+                        <p><strong></strong>
+                            {{restaurant.description}}</p>
+                        <p><strong></strong>
                             {{restaurant.speciality}}</p>
-                        <p><strong>Tel. Number:</strong> {{restaurant.tel}} </p>
-                        <p><strong>Web Site:</strong> {{restaurant.url}}</p>
-                        <p><Strong>Email:</Strong> {{restaurant.email}}</p>
-                        <p><strong>Street:</strong>
+                        <p><strong></strong> {{restaurant.tel}} </p>
+                        <p><strong></strong> {{restaurant.url}}</p>
+                        <p><Strong /> {{restaurant.email}}</p>
+                        <p><strong></strong>
                             {{restaurant.street}},{{restaurant.houseNumber}}
                         </p>
-                        <p><strong>neighborhood:</strong>
+                        <p><strong></strong>
                             {{restaurant.area}}</p>
 
-                        
                     </div>
 
                 </div>
                 <a href="/restaurants/{{restaurant._id}}/edit">Edit</a>
-              
-                 <form action="/restaurants/{{_id}}/delete" method="POST">
-        <button type="submit">Delete Restaurant</button>
-    </form>
+
+                <form
+                    action="/restaurants/{{restaurant._id}}/delete"
+                    method="POST"
+                >
+                    <button type="submit">Delete Restaurant</button>
+                </form>
             </ul>
         </div>
 
