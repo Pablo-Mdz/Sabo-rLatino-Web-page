@@ -1,41 +1,137 @@
-<h2>Edit your Restaurant here</h2>
-<div>
-    <form action="/restaurants/{{_id}}" method="POST">
-    
+<h4>Edit your Restaurant here</h4>
 
-        <label for="name">name:</label>
-        <input type="text" name="name" value="{{name}}" />
+    <div class="container">
+    <form
+        action="/restaurants/{{_id}}" class='container' method="POST">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 form-group">
+                <input
+                    type="text"
+                    name="name"
+                    value="{{name}}"
+                    class="form-control"
+                    id="name"
+                    placeholder="Name"
+                    data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                />
+                <div class="validate"></div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                <input
+                    type="text" name="speciality"
+               placeholder="Speciality"
+               value="{{speciality}}"
+                    class="form-control"
+                    data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                />
+                <div class="validate"></div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input
+                   type="text" placeholder="telefono" name="tel" 
+                   value="{{tel}}"
+                    class="form-control"
+                    data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                />
+                <div class="validate"></div>
+            </div>
 
-        <label for="speciality">speciality:</label>
-        <input type="text" name="speciality" value="{{speciality}}" />
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input
+                   type="text" name="url" placeholder="Web Page"
+                    class="form-control"
+                    value="{{url}}"
+                    data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                />
+                <div class="validate"></div>
+            </div>
 
-        <label for="description">Description:</label>
-        <textarea
-            name="description"
-            type="text"
-            cols="30"
-            rows="10"
-            value="{{description}}"
-        >Descripcion</textarea>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input
+                    type="email" name="email"
+                     value="{{email}}"
+                    class="form-control"
+                    placeholder="Email"
+                    data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                />
+                <div class="validate"></div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input
+                    type="text" name="street"
+                    value="{{street}}"
+                    class="form-control"
+                    placeholder="Street"
+                    data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                />
+                <div class="validate"></div>
+            </div>
 
-        <label for="url">URL:</label>
-        <input type="text" name="url" value="{{url}}" />
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input
+                   type="number" name="houseNumber"
+                   value="{{houseNumber}}"
+                    class="form-control"
+                    name="people"
+                    id="people"
+                    placeholder="House Number"
+                    data-rule="minlen:1"
+                    data-msg="Please enter at least 1 chars"
+                />
+                <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input
+                    type="text"
+                    placeholder="area"
+                    value="{{area}}"
+                    name="Area"
+                     class="form-control"
+                     data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                />
+                <div class="validate"></div>
+            </div>
 
-        <label for="email">email:</label>
-        <input type="text" name="email" value="{{email}}" />
+        </div>
+        <div class="form-group mt-3">
+            <textarea
+                class="form-control"
+              name="description"
+               value="{{description}}"
+                rows="5"
+                placeholder="Description"
+            ></textarea>
+            <div class="validate"></div>
+        </div>
+        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 center" type="submit">Save changes</button>
+        {{!-- <a href="restaurants/rest" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 center" >
+        Save</a> --}}
 
-        <label for="street">street:</label>
-        <input type="text" name="street" value="{{street}}" />
+        
+        {{!-- <div class="mb-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your booking request was sent. We will
+                call back or send an Email to confirm your reservation. Thank
+                you!</div>
+        </div> --}}
+        <div class="text-center"><button type="submit">Save changes</button></div>
 
-        <label for="houseNumber">House number:</label>
-        <input type="number" name="houseNumber" value="{{houseNumber}}" />
-
-        <label for="area">Area:</label>
-        <input type="text" name="area" value="{{area}}" />
-
-        <button type="submit" >Guardar</button>
     </form>
-</div>
-<form action="/restaurants/{{_id}}/delete" method="POST">
+
+    <form action="/restaurants/{{_id}}/delete" method="POST">
         <button type="submit">Delete Restaurant</button>
     </form>
+
+</div>
+ </section>

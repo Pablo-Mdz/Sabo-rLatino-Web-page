@@ -1,22 +1,44 @@
 <div class="container">
-    <ul>
-        {{#each restaurant}}
-            <li>Conocé :{{name}}</li>
-            <li>Description: {{this.description}}</li>
-            <li>Speciality: {{speciality}}</li>
-            <li>Tel. Number: {{tel}} </li>
-            <li>Web Site: {{url}}</li>
-            <li>Email: {{email}}</li>
-            <li>Street: {{street}},{{houseNumber}} </li>
-            <li>neighborhood {{area}}</li>
+    <div class="row mr-6">
+        <div class="col">
+            <ul>
+                <div class="card profile-card-5">
+                    <div class="card-img-block">
+                        <img
+                            class="card-img-top"
+                            src="https://images.unsplash.com/photo-1517832207067-4db24a2ae47c"
+                            alt="Card image cap"
+                        />
+                    </div>
+                    <div class="card-body pt-0">
+                        <h1 class="card-title"> <strong>{{restaurant.name}}</strong></h1>
+                        <p class="card-text">
+                            {{this.description}}</p>
+                        <p><strong>Description:</strong>
+                            {{restaurant.description}}</p>
+                        <p><strong>Speciality:</strong>
+                            {{restaurant.speciality}}</p>
+                        <p><strong>Tel. Number:</strong> {{restaurant.tel}} </p>
+                        <p><strong>Web Site:</strong> {{restaurant.url}}</p>
+                        <p><Strong>Email:</Strong> {{restaurant.email}}</p>
+                        <p><strong>Street:</strong>
+                            {{restaurant.street}},{{restaurant.houseNumber}}
+                        </p>
+                        <p><strong>neighborhood:</strong>
+                            {{restaurant.area}}</p>
 
-        {{/each}}
-    </ul>
+                        
+                    </div>
 
-    {{!-- <a href="/restaurants/{{restaurant._id}}/edit">Edit {{restaurant.name}}</a>
-    <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
-        <button type="submit">Delete {{restaurant.name}}</button>
-</form> --}}
-    <a href="/">Return Home</a>
-    <a href="/restaurants/{{_id}}/edit">Edit</a>
+                </div>
+                <a href="/restaurants/{{restaurant._id}}/edit">Edit</a>
+              
+                 <form action="/restaurants/{{_id}}/delete" method="POST">
+        <button type="submit">Delete Restaurant</button>
+    </form>
+            </ul>
+        </div>
+
+        {{! </div> }}
+    </div>
 </div>

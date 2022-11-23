@@ -1,14 +1,74 @@
 <div class="titles">
     <h1>My profile</h1>
     <h2>Hello, and wellcome {{user.username}}</h2>
-    <a href="/restaurants/read">Read your restaurant</a>
-    <a href="/restaurants/create">Add a restaurants</a>
-    <a href="/restaurants/rest">muestra Restaurantes</a>
+    <div class="container">
+            <a
+                class="btn btn-warning btn-block fa-lg gradient-custom-2 mb-3 center"
+                href="/restaurants/create"
+                {{! type="submit" }}
+                {{! id="submit" }}
+            >Create a new restaurants</a>
+        </div>
+
+
+
+<div class="container">
+    <div class="row mr-3">
+        {{! <div class="row "> }}
+        {{#each restaurant}}
+            <div class="col-sm-12 col-md-4 card">
+                <ul>
+                    <div class="card profile-card-5">
+                        <div class="card-img-block">
+                            <img
+                                class="card-img-top"
+                                src="https://images.unsplash.com/photo-1517832207067-4db24a2ae47c"
+                                alt="Card image cap"
+                            />
+                        </div>
+                        <div class="card-body pt-0">
+                            <h5 class="card-title">Restaurant: {{name}}</h5>
+                            <p class="card-text">
+                               Descrription: {{this.description}}</p>
+                            <p class="mt-3 w-100 float-left text-center"><strong
+                                > {{url}}</strong></p>
+                            <p>Speciality: {{this.speciality}}</p>
+            <p>Tel. Number: {{this.tel}} </p>
+            <p>Web Site: {{this.url}}</p>
+            <p>Email: {{this.email}}</p>
+            <p>Street: {{this.street}},{{this.houseNumber}} </p>
+            <p>neighborhood {{this.area}}</p>
+                        </div>
+
+                    </div>
+                     <a href="/restaurants/{{this._id}}" class="card-link">More about</a>
+                     {{!-- <form action="/restaurants/read" method="get">
+        <button type="submit">read Restaurant</button>
+    </form> --}}
+                   
+                </ul>
+            </div>
+        {{/each}}
+        {{! </div> }}
+    </div>
+</div>
+    {{#each restaurant}}
+        <p>this is are my restaurants: {{this.name}}</p>
+        <p>this is are my rdes: {{this.description}}</p>
+    {{/each}}
+
+    
+    <a href="restaurants/rest">Edit</a>
+    </form>
 </div>
 
+
 <div class="hip">
+    
     <a href="/auth/logout">Logout</a>
     <a href="/">Home</a>
+
 {{!--     <img src="{{user.Image}}" alt="" /> --}}
+
 
 </div>
