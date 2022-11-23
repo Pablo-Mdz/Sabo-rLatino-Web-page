@@ -6,25 +6,14 @@
     <form
         action="/restaurants/create" class='container' method="POST" enctype="multipart/form-data">
         <div class="row">
-            <div class="col-lg-4 col-md-6 form-group">
+            <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
                     type="text"
                     name="name"
                     class="form-control"
                     id="name"
                     placeholder="Your Name"
-                    data-rule="minlen:4"
-                    data-msg="Please enter at least 4 chars"
-                />
-                <div class="validate"></div>
-            </div>
-            
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-                <input
-                    type="text" name="speciality"
-               placeholder="Speciality"
-                    class="form-control"
-                    data-rule="minlen:4"
+                    {{!-- data-rule="minlen:4" --}}
                     data-msg="Please enter at least 4 chars"
                 />
                 <div class="validate"></div>
@@ -32,9 +21,20 @@
             
             <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
-                   type="text" placeholder="telefono" name="tel" 
+                    type="text" name="speciality"
+               placeholder="Speciality"
                     class="form-control"
-                    data-rule="minlen:4"
+                    {{!-- data-rule="minlen:4" --}}
+                    data-msg="Please enter at least 4 chars"
+                />
+                <div class="validate"></div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input
+                   type="text" placeholder="Tel without space or special characters" name="tel" 
+                    class="form-control"
+                    {{!-- data-rule="minlen:4" --}}
                     data-msg="Please enter at least 4 chars"
                 />
                 <div class="validate"></div>
@@ -44,7 +44,7 @@
                 <input
                    type="text" name="url" placeholder="Web Page"
                     class="form-control"
-                    data-rule="minlen:4"
+                    {{!-- data-rule="minlen:4" --}}
                     data-msg="Please enter at least 4 chars"
                 />
 
@@ -56,7 +56,7 @@
                     type="email" name="email"
                     class="form-control"
                     placeholder="Email"
-                    data-rule="minlen:4"
+                    {{!-- data-rule="minlen:4" --}}
                     data-msg="Please enter at least 4 chars"
                 />
                 <div class="validate"></div>
@@ -67,7 +67,7 @@
                     type="text" name="street"
                     class="form-control"
                     placeholder="Street"
-                    data-rule="minlen:4"
+                    {{!-- data-rule="minlen:4" --}}
                     data-msg="Please enter at least 4 chars"
                 />
                 <div class="validate"></div>
@@ -75,12 +75,12 @@
 
             <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
-                   type="number" name="houseNumber"
+                   type="text"  name="houseNumber"
                     class="form-control"
                     name="people"
                     id="people"
                     placeholder="House Number"
-                    data-rule="minlen:1"
+                    {{!-- data-rule="minlen:1" --}}
                     data-msg="Please enter at least 1 chars"
                 />
                 <div class="validate"></div>
@@ -88,10 +88,10 @@
             <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
                     type="text"
-                    placeholder="area"
+                    placeholder="Postal Code and City"
                     name="Area"
                      class="form-control"
-                     data-rule="minlen:4"
+                     {{!-- data-rule="minlen:4" --}}
                     data-msg="Please enter at least 4 chars"
                 />
                 <div class="validate"></div>
@@ -103,7 +103,7 @@
                     placeholder="file"
                     name="Image"
                      class="form-control"
-                     data-rule="minlen:4"
+                     {{!-- data-rule="minlen:4" --}}
                     data-msg="Please enter at least 4 chars"
                 />
                 <div class="validate"></div>

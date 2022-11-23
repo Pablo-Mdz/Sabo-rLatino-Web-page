@@ -2,10 +2,10 @@
 
 {{#each restaurantsFound}}
 <br>
-<a href="/restaurants/results{{_id}}">
+<a href="/restaurants/{{this._id}}">
   <p>{{this.name}}</p> 
   <p>{{speciality}}</p> 
-  <p>{{area}}</p>
+
 </a>
 <br>
 {{/each}}

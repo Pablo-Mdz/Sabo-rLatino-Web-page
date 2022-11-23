@@ -19,7 +19,6 @@ router.get('/restaurants/read', (req, res) => {
 router.post('/restaurants/create', uploader.single("Image"), (req, res) => {
     const userId = req.session.user._id
     const { name, description, speciality, tel, url, email, street, houseNumber, area /* owner */ } = req.body
-    console.log(req.body)
     const imgName = req.file.originalname
     const imgPath = req.file.path
     const publicId = req.file.filename
@@ -36,7 +35,7 @@ router.post('/restaurants/create', uploader.single("Image"), (req, res) => {
         imgName, 
         imgPath, 
         publicId,
-        owner: userId
+        owner: userId,
     })
         .then(createdRestaurant => res.redirect('/profile'))
         .catch(err => res.render("restaurants/new"))
