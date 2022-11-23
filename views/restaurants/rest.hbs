@@ -1,3 +1,8 @@
+
+
+
+
+{{!-- 
 <div class="container">
     <ul>
         {{#each restaurant}}
@@ -17,4 +22,29 @@
 
     {{#if message}}
 <h3 >{{message}}</h3>
-{{/if}}
+{{/if}} --}}
+
+<div class="card" style="width: 30rem;">
+    <ul>
+         {{#each restaurant}}
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Restaurant: {{name}}</h5>
+    <p class="card-text">About: {{this.description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Speciality: {{speciality}}</li>
+    <li class="list-group-item">Street: {{street}},{{houseNumber}}</li>
+    <li class="list-group-item">neighborhood {{area}}</li>
+    <li class="list-group-item">Tel. Number: {{tel}}</li>
+    <li class="list-group-item">Web Site: {{url}}</li>
+    <li class="list-group-item">Email: {{email}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="restaurants/edit" class="card-link">Edit</a>
+    <a href="restaurants/delete" class="card-link">Delete</a>
+  </div>
+  <hr/>
+       {{/each}}
+    </ul>
+</div>

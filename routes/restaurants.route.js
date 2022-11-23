@@ -57,10 +57,10 @@ router.get("/restaurants/:id", (req, res) => {
 })
 
 
-//edit service
+//edit service get
 router.get("/restaurants/:id/edit", async (req, res) => {
     const id = req.params.id
-    // Restaurant.findById(id)
+    Restaurant.findById(id)
     try {
         // const rest = await Restaurant.findById(id).populate("User")
         const restaurant = await Restaurant.findById(id)
@@ -71,7 +71,7 @@ router.get("/restaurants/:id/edit", async (req, res) => {
     }
 
 })
-
+//edit post
 router.post("/restaurants/:id", (req, res, next) => {
     const id = req.params.id
     const { name, description, speciality, tel, url, email, street, houseNumber, area, owner } = req.body
@@ -122,5 +122,4 @@ router.post('/restaurants/:id/delete', (req, res) => {
         })
         .catch(err => console.log(err))
 });
-
 module.exports = router;

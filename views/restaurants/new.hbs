@@ -2,53 +2,55 @@
 <h2>Add your Restaurant here</h2>
 <a href="restaurants/edit">edit</a>
 <form action="/restaurants/create" class='container' method="POST">
-    <label for="name">Name:</label>
-    <input type="text" name="name" />
+    {{!-- <label for="name">Name:</label>
+    <input type="text" name="name" /> --}}
 
-    <label for="speciality">Speciality:</label>
-    <input type="text" name="speciality" />
+    {{!-- <label for="speciality">Speciality:</label>
+    <input type="text" name="speciality" /> --}}
 
+
+    {{!-- <label for="tel">Tel:</label>
+    <input type="text" placeholder="telefono" name="tel" /> --}}
+
+    {{!-- <label for="url">URL:</label>
+    <input type="text" name="url" /> --}}
+
+    {{!-- <label for="email">email:</label>
+    <input type="text" name="email" /> --}}
+
+    {{!-- <label for="street">street:</label>
+    <input type="text" name="street" /> --}}
+
+    {{!-- <label for="houseNumber">House number:</label>
+    <input type="number" name="houseNumber" /> --}}
+
+    {{!-- <label for="area">Area:</label>
+    <input type="text" name="area" /> --}}
+
+    {{!-- <button type="submit">Add</button>
     <textarea
         name="description"
         id=""
         cols="30"
         rows="10"
-    >Descripcion</textarea>
-
-    <label for="tel">Tel:</label>
-    <input type="text" placeholder="telefono" name="tel" />
-
-    <label for="url">URL:</label>
-    <input type="text" name="url" />
-
-    <label for="email">email:</label>
-    <input type="text" name="email" />
-
-    <label for="street">street:</label>
-    <input type="text" name="street" />
-
-    <label for="houseNumber">House number:</label>
-    <input type="number" name="houseNumber" />
-
-    <label for="area">Area:</label>
-    <input type="text" name="area" />
-
-    <button type="submit">Add</button>
+    >Descripcion</textarea> --}}
 </form>
  <section id="book-a-table" class="book-a-table">
       <div class="container">
 
         <div class="section-title">
           <h2>Book a <span>Table</span></h2>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+         
         </div>
+
+
+
+
+
+
 <div class="container">
     <form
-        action="forms/book-a-table.php"
-        method="post"
-        role="form"
-        class="php-email-form"
-    >
+        action="/restaurants/create" class='container' method="POST">
         <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
                 <input
@@ -62,76 +64,99 @@
                 />
                 <div class="validate"></div>
             </div>
+            
             <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
                 <input
-                    type="email"
+                    type="text" name="speciality"
+               placeholder="Speciality"
                     class="form-control"
-                    name="email"
-                    id="email"
-                    placeholder="Your Email"
-                    data-rule="email"
-                    data-msg="Please enter a valid email"
-                />
-                <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-                <input
-                    type="text"
-                    class="form-control"
-                    name="phone"
-                    id="phone"
-                    placeholder="Your Phone"
                     data-rule="minlen:4"
                     data-msg="Please enter at least 4 chars"
                 />
                 <div class="validate"></div>
             </div>
+            
             <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
-                    type="text"
-                    name="date"
+                   type="text" placeholder="telefono" name="tel" 
                     class="form-control"
-                    id="date"
-                    placeholder="Date"
                     data-rule="minlen:4"
                     data-msg="Please enter at least 4 chars"
                 />
                 <div class="validate"></div>
             </div>
+
             <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
-                    type="text"
+                   type="text" name="url" placeholder="Web Page"
                     class="form-control"
-                    name="time"
-                    id="time"
-                    placeholder="Time"
                     data-rule="minlen:4"
                     data-msg="Please enter at least 4 chars"
                 />
                 <div class="validate"></div>
             </div>
+
             <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
-                    type="number"
+                    type="email" name="email"
+                    class="form-control"
+                    placeholder="Email"
+                    data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                />
+                <div class="validate"></div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input
+                    type="text" name="street"
+                    class="form-control"
+                    placeholder="Street"
+                    data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                />
+                <div class="validate"></div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input
+                   type="number" name="houseNumber"
                     class="form-control"
                     name="people"
                     id="people"
-                    placeholder="# of people"
+                    placeholder="House Number"
                     data-rule="minlen:1"
                     data-msg="Please enter at least 1 chars"
                 />
                 <div class="validate"></div>
             </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input
+                    type="text"
+                    placeholder="area"
+                    name="Area"
+                     class="form-control"
+                     data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                />
+                <div class="validate"></div>
+            </div>
+
         </div>
         <div class="form-group mt-3">
             <textarea
                 class="form-control"
-                name="message"
+              name="description"
                 rows="5"
-                placeholder="Message"
+                placeholder="Description"
             ></textarea>
             <div class="validate"></div>
         </div>
+        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 center" type="submit">Add</button>
+        {{!-- <a href="restaurants/rest" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 center" >
+        Save</a> --}}
+
+        
         <div class="mb-3">
             <div class="loading">Loading</div>
             <div class="error-message"></div>
