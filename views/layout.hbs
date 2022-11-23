@@ -20,10 +20,12 @@
         <link rel="stylesheet" href="/stylesheets/error.css" />
     </head>
 
-    <body >
+    <body>
 
+        <nav class="navbar navbar-expand-lg text-white">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">Sabor Latino</a>
+                <img src="images/saborlatino.png" style='width: 120px;'   class="navbar-brand" >
+                
                 <button
                     class="navbar-toggler"
                     type="button"
@@ -57,9 +59,11 @@
                             <a class="nav-link" href="/auth/login">LogIn</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/auth/signup">Signup</a>
+                        </li>
 
                     </ul>
-                     <form class="d-flex" role="search">
+                    <form class="d-flex" role="search">
                         <input
                             class="form-control me-2"
                             type="search"
@@ -70,26 +74,23 @@
                             class="btn btn-outline-success"
                             type="submit"
                         >Search</button>
-                    </form> 
+                    </form>
                 </div>
             </div>
         </nav>
-    {{!-- end nav bar --}}
+        {{! end nav bar }}
 
-        
+        <div class="container">
+            <a
+                class="btn btn-warning btn-block fa-lg gradient-custom-2 mb-3 center"
+                href="/restaurants/rest"
+                {{! type="submit" }}
+                {{! id="submit" }}
+            >See all the restaurants</a>
+        </div>
         {{{body}}}
-     <div class="container">
-     <a
-        class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 center"
-        href="/restaurants/rest"
-        {{!-- type="submit" --}}
-        {{!-- id="submit" --}}
-        >See all the restaurants</a>
-</div>
-   {{!-- <a href="restaurants/rest">Edit</a> --}}
-   <a href="restaurants/create">create</a>
-
-
+        {{! <a href="restaurants/rest">Edit</a> }}
+        <a href="restaurants/create">create</a>
 
         <script src="/js/script.js"></script>
     </body>

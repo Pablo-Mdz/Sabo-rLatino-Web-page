@@ -78,7 +78,9 @@ body {
     border: none;
     margin-top: 0;
 }
-
+button {
+    color: rgb(252,174,187)
+}
 .titles h1 {
     font-size: 50px;
     display: flex;
