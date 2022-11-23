@@ -1,50 +1,34 @@
 
-
-
-
-{{!-- 
 <div class="container">
-    <ul>
+    <div class="row mr-3">
+        {{! <div class="row "> }}
         {{#each restaurant}}
-        <a href="/restaurants/{{this._id}}/edit">
-            <li>Conocé :{{name}}</li>
-            <li>Description: {{this.description}}</li>
-            <li>Speciality: {{speciality}}</li>
-            <li>Tel. Number: {{tel}} </li>
-            <li>Web Site: {{url}}</li>
-            <li>Email: {{email}}</li>
-            <li>Street: {{street}},{{houseNumber}} </li>
-            <li>neighborhood {{area}}</li>
-            <hr/>
-            </a>
+            <div class="col-sm-12 col-md-4 card">
+                <ul>
+                    <div class="card profile-card-5">
+                        <div class="card-img-block">
+                            <img
+                                class="card-img-top"
+                                src="{{imgPath}}"
+                                alt="Img, Restaurant"
+                            />
+                        </div>
+                        <div class="card-body pt-0">
+                            <h5 class="card-title"> {{name}}</h5>
+                            <p class="card-text">
+                                {{this.description}}</p>
+                            <p class="mt-3 w-100 float-left text-center"><strong
+                                > {{url}}</strong></p>
+                        </div>
+
+                    </div>
+                    <a href="{{_id}}" class="card-link">More about</a>
+                    {{!-- <form action="/restaurants/{{_id}}/delete" method="POST">
+        <button type="submit">Delete Restaurant</button>
+    </form> --}}
+                </ul>
+            </div>
         {{/each}}
-    </ul>
-
-    {{#if message}}
-<h3 >{{message}}</h3>
-{{/if}} --}}
-
-<div class="card" style="width: 30rem;">
-    <ul>
-         {{#each restaurant}}
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Restaurant: {{name}}</h5>
-    <p class="card-text">About: {{this.description}}</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Speciality: {{speciality}}</li>
-    <li class="list-group-item">Street: {{street}},{{houseNumber}}</li>
-    <li class="list-group-item">neighborhood {{area}}</li>
-    <li class="list-group-item">Tel. Number: {{tel}}</li>
-    <li class="list-group-item">Web Site: {{url}}</li>
-    <li class="list-group-item">Email: {{email}}</li>
-  </ul>
-  <div class="card-body">
-    <a href="restaurants/edit" class="card-link">Edit</a>
-    <a href="restaurants/delete" class="card-link">Delete</a>
-  </div>
-  <hr/>
-       {{/each}}
-    </ul>
+        {{! </div> }}
+    </div>
 </div>
