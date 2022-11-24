@@ -1,13 +1,45 @@
 <h2>Your results</h2>
 
-{{#each restaurantsFound}}
-<br>
+<br />
 <a href="/restaurants/{{this._id}}">
-  <p>{{this.name}}</p> 
-  <p>{{speciality}}</p> 
+    <p>{{this.name}}</p>
+    <p>{{speciality}}</p>
 
 </a>
-<br>
-{{/each}}
+<br />
 
-<a href="/">Back to the Home Page</a>
+{{#each restaurantsFound}}
+    <div class="col-sm-12 col-md-4 card">
+        <ul>
+            <div class="card profile-card-5">
+                <div class="card-img-block">
+                    <img
+                        class="card-img-top card-img"
+                        src="{{this.imgPath}}"
+                        alt="Card image cap"
+                    />
+                </div>
+                <div class="card-body pt-0">
+                    <h5 class="card-title"> {{name}}</h5>
+                    <p class="card-text">
+                        {{this.description}}</p>
+                    <p class="mt-3 w-100 float-left text-center"><strong>
+                            {{url}}</strong></p>
+                    <p> {{this.speciality}}</p>
+                    <p> {{this.tel}} </p>
+                    <p><a href="{{this.url}}">{{this.url}}</a></p>
+                    <p><i class="bi bi-balloon-heart-fill"></i>
+                        {{this.email}}</p>
+                    <p>{{this.street}} {{this.houseNumber}} </p>
+                    <p>{{this.area}}</p>
+                </div>
+
+            </div>
+            <a
+                href="/restaurants/{{this._id}}"
+                class="btn btn-warning btn-block fa-lg gradient-custom-2 mt-3 mb-3 center"
+            >More about</a>
+
+        </ul>
+    </div>
+{{/each}}

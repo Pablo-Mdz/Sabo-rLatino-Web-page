@@ -5,15 +5,15 @@ const { isLoggedIn } = require('../middleware/route-guard')
 
 //create restaurant
 router.get('/restaurants/create', (req, res) => {
-    res.render('restaurants/new')
+    res.render('restaurants/new', {user:req.session.user})
 });
 
 // read restaurant
 router.get('/restaurants/read', (req, res) => {
      Restaurant.find()
-        .then(restaurant => res.render('restaurants', { restaurant }))
+        .then(restaurant => res.render('restaurants', { restaurant, user:req.session.user }))
         .catch(err => console.log(err))
-    res.render('restaurants/details')
+    res.render('restaurants/details',{user:req.session.user})
 });
 
 router.post('/restaurants/create', uploader.single("Image"), (req, res) => {
@@ -35,21 +35,21 @@ router.post('/restaurants/create', uploader.single("Image"), (req, res) => {
         imgName, 
         imgPath, 
         publicId,
-        owner: userId,
+        owner: userId
     })
         .then(createdRestaurant => res.redirect('/profile'))
-        .catch(err => res.render("restaurants/new"))
+        .catch(err => res.render("restaurants/new",{user:req.session.user}))
 });
 
 //get all restaurant
 router.get('/restaurants/rest', (req, res) => {
     Restaurant.find()
-        .then(restaurant => res.render('restaurants/rest', { restaurant }))
+        .then(restaurant => res.render('restaurants/rest', { restaurant ,user:req.session.user}))
         .catch(err => console.log(err))
 });
 
 
-
+// search 
 router.get('/restaurants/results', (req, res) => {
     const query = req.query.q
     console.log(query)
@@ -57,7 +57,7 @@ router.get('/restaurants/results', (req, res) => {
     Restaurant.find({ }) 
     .then(restaurantsFromDB => {  
       if(restaurantsFromDB === null){
-          res.render("restaurants/results", { message : 'Sorry, no results found'/* , isLoggedIn */})
+          res.render("restaurants/results", { user:req.session.user , message : 'Sorry, no results found'/* , isLoggedIn */})
           return
         } 
         else {
@@ -70,7 +70,7 @@ router.get('/restaurants/results', (req, res) => {
             restaurantsFound.push(restaurant)
           }
         } 
-        res.render("restaurants/results", {restaurantsFound: restaurantsFound /* , isLoggedIn */ }) 
+        res.render("restaurants/results", {restaurantsFound: restaurantsFound , user:req.session.user/* , isLoggedIn */ }) 
       }
     })
     })
@@ -85,7 +85,7 @@ router.get("/restaurants/:id", (req, res) => {
         // .populate("User")
         .then(restaurant => {
             console.log(restaurant)
-            res.render("restaurants/details", { restaurant })
+            res.render("restaurants/details", { restaurant, user:req.session.user })
         }
         )
         .catch(err => console.log(err))
@@ -100,7 +100,7 @@ router.get("/restaurants/:id/edit", async (req, res) => {
     try {
         const restaurant = await Restaurant.findById(id)
         console.log(restaurant)
-        res.render("restaurants/edit", restaurant)
+        res.render("restaurants/edit",{user:req.session.user}, restaurant)
     } catch (err) {
         console.log(err)
     }
@@ -128,7 +128,7 @@ router.post("/restaurants/:id", (req, res, next) => {
         .then(data => {
 
             if (data.owner._id.toString() !== req.session.user._id) {
-                res.render("restaurants/rest", { message: "Oops! you can not Edit." })
+                res.render("restaurants/rest",{user:req.session.user}, { message: "Oops! you can not Edit." })
             } else {
                 Restaurant.findByIdAndUpdate(id, restaurant, { new: true })
                     .then(createdRestaurant => {
@@ -149,7 +149,7 @@ router.post('/restaurants/:id/delete', (req, res) => {
     Restaurant.findById(id)
         .then(data => {
             if (data.owner._id.toString() !== req.session.user._id) {
-                res.render("restaurants/rest", { message: "Oops! you can not delete." })
+                res.render("restaurants/rest", { message: "Oops! you can not delete." }, {user:req.session.user})
             } else {
 
                 Restaurant.findByIdAndRemove(id)

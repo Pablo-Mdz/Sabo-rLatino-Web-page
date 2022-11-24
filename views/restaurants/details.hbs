@@ -34,13 +34,14 @@
                     </div>
 
                 </div>
-                <a href="/restaurants/{{restaurant._id}}/edit">Edit</a>
+                <a class="btn btn-success btn-block fa-lg gradient-custom-2 mt-3  p-2 center" href="/restaurants/{{restaurant._id}}/edit">Edit</a>
 
                 <form
+                    
                     action="/restaurants/{{restaurant._id}}/delete"
                     method="POST"
                 >
-                    <button type="submit">Delete Restaurant</button>
+                    <button class="btn btn-danger btn-block fa-lg gradient-custom-2 mt-3  p-2 center" onclick="return confirm('Are you sure to delete?')" type="submit">Delete Restaurant</button>
                 </form>
             </ul>
         </div>
