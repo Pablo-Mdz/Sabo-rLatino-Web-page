@@ -133,6 +133,7 @@ router.post("/restaurants/:id", (req, res, next) => {
                 // res.render("restaurants/rest", { user: req.session.user, restaurant, message: "Oops! you can not Edit." })
             } else {
                 Restaurant.findByIdAndUpdate(id, restaurant, { new: true })
+                
                     .then(createdRestaurant => {
                         console.log(createdRestaurant)
                         res.redirect("/profile")

@@ -1,15 +1,18 @@
 <div class="container ">
     <div class="row mr-3 ">
         {{#each restaurant}}
+ 
             <div class="col-sm-12 col-md-4 card  my-2 ">
                 <ul>
                     <div class="card profile-card-5">
-                        <div class="card-img-block">
-                            <img
-                                class="card-img-top card-img"
+                        <div class="card-img-block category">
+                            <div class="overflow-hidden">
+                                <a href="/restaurants/{{this._id}}">
+                                <img
+                                class="card-img-top card-img  img-fluid"
                                 src="{{this.imgPath}}"
-                                alt="Img, Restaurant"
-                            />
+                                alt="Img, Restaurant"/></a>
+                            </div>
                         </div>
                         <div class="card-body pt-0">
                             <h5 class="card-title"> {{this.name}}</h5>
@@ -23,12 +26,10 @@
                         </div>
 
                     </div>
-                    <a
-                        href="{{_id}}"
-                        class="btn btn-success btn-block fa-lg gradient-custom-2 mt-3 p-2 center"
-                    >More about</a>
                 </ul>
             </div>
+            
+        {{!-- </a> --}}
         {{/each}}
     </div>
 </div>
