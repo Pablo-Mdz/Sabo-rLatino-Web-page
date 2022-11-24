@@ -3,8 +3,8 @@
     <h2>Hello, and wellcome {{user.username}}</h2>
     <div class="container">
             <a
-                class="btn btn-warning btn-block fa-lg gradient-custom-2 mb-3 center"href="/restaurants/create">Create a new restaurants</a>
-                    <a class="btn btn-warning btn-block fa-lg gradient-custom-2 mb-3 center" href="/auth/logout">Logout</a>
+                class="btn btn-success btn-block fa-lg gradient-custom-2 mb-3 center"href="/restaurants/create">Create a new restaurants</a>
+                   
         </div>
 
 
@@ -18,7 +18,7 @@
                     <div class="card profile-card-5">
                         <div class="card-img-block">
                             <img
-                                class="card-img-top"
+                                class="card-img-top card-img"
                                 src="{{this.imgPath}}"
                                 alt="Card image cap"
                             />
@@ -38,7 +38,7 @@
                         </div>
 
                     </div>
-                     <a href="/restaurants/{{this._id}}" class="card-link">More about</a>
+                     <a href="/restaurants/{{this._id}}" class="btn btn-warning btn-block fa-lg gradient-custom-2 mt-3 mb-3 center">More about</a>
                      {{!-- <form action="/restaurants/read" method="get">
         <button type="submit">read Restaurant</button>
     </form> --}}
@@ -48,24 +48,10 @@
         {{/each}}
         {{! </div> }}
     </div>
-{{!-- </div>
-    {{#each restaurant}}
-        <p>this is are my restaurants: {{this.name}}</p>
-        <p>this is are my rdes: {{this.description}}</p>
-    {{/each}}
 
-    
-    <a href="restaurants/rest">Edit</a>
-    </form>
-</div>
-
-
-<div class="hip">
-     --}}
-
-    <a href="/">Home</a>
-
-{{!--     <img src="{{user.Image}}" alt="" /> --}}
-
+<div class="block">
+    <form action=""></form>
+    <a class="btn btn-white-50 btn-block fa-lg gradient-custom-2 mb-3 center" href="/">Home</a>
+    <a class="btn btn-warning-50 btn-block fa-lg gradient-custom-2 mb-3 center" href="/auth/logout">Logout</a>
 
 </div>
