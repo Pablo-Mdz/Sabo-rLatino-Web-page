@@ -16,6 +16,7 @@ router.get('/restaurants/read', (req, res) => {
     res.render('restaurants/details')
 });
 
+
 router.post('/restaurants/create', uploader.single("Image"), (req, res) => {
     const userId = req.session.user._id
     const { name, description, speciality, tel, url, email, street, houseNumber, area /* owner */ } = req.body

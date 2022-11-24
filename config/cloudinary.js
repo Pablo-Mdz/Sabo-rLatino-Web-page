@@ -14,7 +14,7 @@ const storage = new CloudinaryStorage({
 		folder: "img-uploads",
 		allowed_formats: "jpg, png"
 	}
-})
+}) 
 
 const uploader = multer({ storage })
 
