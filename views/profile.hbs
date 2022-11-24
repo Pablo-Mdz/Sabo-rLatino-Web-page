@@ -3,41 +3,43 @@
     <h2>Hello, and wellcome {{user.username}}</h2>
     <div class="container">
             <a
-                class="btn btn-success btn-block fa-lg gradient-custom-2 mb-3 center"href="/restaurants/create">Create a new restaurant</a>        
-        </div>
-
-
-
+                class="btn btn-success btn-block fa-lg gradient-custom-2 pb-2 mb-1 center"href="/restaurants/create">Create a new restaurant</a>        
+    </div>
+</div>
 <div class="container">
-    <div class="row mr-3">
-        {{! <div class="row "> }}
+    <div class="row mr-1">
         {{#each restaurant}}
+
             <div class="col-sm-12 col-md-4 card my-2">
                 <ul>
                     <div class="card profile-card-5">
-                        <div class="card-img-block">
+                        <div class="card-img-block category">
+                            <div class="overflow-hidden">
+                                <a href="/restaurants/{{this._id}}">
                             <img
-                                class="card-img-top card-img"
+                                class="card-img-top card-img  img-fluid"
                                 src="{{this.imgPath}}"
                                 alt="Card image cap"
-                            />
+                            /></a>
+                            </div>
                         </div>
                         <div class="card-body pt-0">
                             <h5 class="card-title"> {{this.name}}</h5>
                             {{!-- <p class="card-text">
                                 {{this.description}}</p> --}}
                             <p> {{this.speciality}}</p>
-            <p> {{this.tel}} </p>
-           <p><a href="{{this.url}}" >{{this.url}}</a></p>
-            <p ><i class="bi bi-balloon-heart-fill"></i> {{this.email}}</p>
-            <p>{{this.street}}  {{this.houseNumber}} </p>
-            <p>{{this.area}}</p>
+                            <p> {{this.tel}} </p>
+                            <p><a href="{{this.url}}" >{{this.url}}</a></p>
+                            <p ><i class="bi bi-balloon-heart-fill"></i> {{this.email}}</p>
+                            <p>{{this.street}}  {{this.houseNumber}} </p>
+                            <p>{{this.area}}</p>
                         </div>
 
                     </div>
-                     <a href="/restaurants/{{this._id}}" class="btn btn-warning btn-block fa-lg gradient-custom-2 mt-3 mb-3 center">More about</a>
+                     {{!-- <a href="/restaurants/{{this._id}}" class="btn btn-warning btn-block fa-lg gradient-custom-2 mt-3 mb-3 center">More about</a> --}}
                 </ul>
             </div>
+</a>
         {{/each}}
     </div>
-
+</div>

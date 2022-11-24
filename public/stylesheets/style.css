@@ -1,61 +1,3 @@
-/* Hex: #ffa0a0
-RGB: (255,160,160)
-CMYK: (0,37,37,0)
-Pantone Red 0331 C
-Hex: #FCAEBB
-RGB: (252,174,187)
-Pantone 162 C
-Hex: #FFBE9F
-RGB: (255,190,159)
-Pantone 169 C
-Hex: #FFB3AB
-RGB: (255,179,171)
-Pantone 176 C
-Hex: #FFB1BB
-RGB: (255,177,187)
-Pantone 183 C
-Hex: #FC9BB3
-RGB: (252,155,179)
-Pantone 189 C
-Hex: #F8A3BC
-RGB: (248,163,188)
-Pantone 197 C
-Hex: #E89CAE
-RGB: (232,156,174)
-Pantone 487 C
-Hex: #EAA794
-RGB: (234,167,148)
-Pantone 494 C
-Hex: #E9A2B2
-RGB: (233,162,178)
-Pantone 700 C
-Hex: #F2ACB9
-RGB: (242,172,185)
-Pantone 708 C
-Hex: #F890A5
-RGB: (248,144,165)
-Pantone 1555 C
-Hex: #FFB990
-RGB: (255,185,144)
-Pantone 1625 C
-Hex: #FFA38B
-RGB: (255,163,139)
-Pantone 1765 C
-Hex: #FFA3B5
-RGB: (255,163,181)
-Pantone 1775 C
-Hex: #FF8DA1
-RGB: (255,141,161)
-Pantone 1905 C
-Hex: #F59BBB
-RGB: (245,155,187)
-Pantone 2022 C
-Hex: #FAAA8D
-RGB: (250,170,141)
-Pantone 2339 C
-Hex: #F09491
-RGB: (240,148,145) */
-
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 
 body {
@@ -66,11 +8,34 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Quicksand", sans-serif;
+   
+}
+
+.homeImg {
+    width: 100%!important;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+.homeImg img {
+
+    border-radius: 30px;
+    box-shadow: 3px 3px 20px black;
+}
+
+.category img {
+    transition-property: transform;
+    transition-duration: 300ms;
+}
+.category img:hover {
+    transform: scale(1.2);
 }
 #navbar-brandi {
     width: 120px;
 }
-
+h1 {
+    font-size: 50px!important;
+}
 .block {
     display: flex;
     flex-direction: column;
@@ -101,9 +66,9 @@ button {
     color: rgb(223, 184, 190);
 }
 
-p {
+/* p {
     margin: 30px;
-}
+} */
 
 img {
     width: 20%;
@@ -112,6 +77,27 @@ img {
     width: 100%;
     height: 15vw;
     object-fit: cover;
+}
+
+footer {
+    background-color: rgb(245, 247, 248);
+    color: black;
+    padding: 3%;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+footer img {
+    width: 15%;
+}
+
+footer a {
+    text-align: center;
+}
+#mail {
+    display: block;
+    text-align: right;
+    text-decoration: none;
 }
 
 /* body {

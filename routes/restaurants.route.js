@@ -137,8 +137,11 @@ router.post("/restaurants/:id",/*  uploader.single("Image"), */ (req, res, next)
                 // res.render("restaurants/rest", { user: req.session.user, restaurant, message: "Oops! you can not Edit." })
             } else {
                 Restaurant.findByIdAndUpdate(id, restaurant, { new: true })
-                    .then(updatedRestaurant => {
-                        console.log(updatedRestaurant)
+
+                
+                    .then(createdRestaurant => {
+                        console.log(createdRestaurant)
+
                         res.redirect("/profile")
                     })
             }
