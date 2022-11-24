@@ -1,23 +1,25 @@
-<div class="container">
-    <div class="row mr-3">
-        {{! <div class="row "> }}
+<div class="container ">
+    <div class="row mr-3 ">
         {{#each restaurant}}
-            <div class="col-sm-12 col-md-4 card">
+            <div class="col-sm-12 col-md-4 card  my-2 ">
                 <ul>
                     <div class="card profile-card-5">
                         <div class="card-img-block">
                             <img
                                 class="card-img-top card-img"
-                                src="{{imgPath}}"
+                                src="{{this.imgPath}}"
                                 alt="Img, Restaurant"
                             />
                         </div>
                         <div class="card-body pt-0">
-                            <h5 class="card-title"> {{name}}</h5>
-                            <p class="card-text">
-                                {{this.description}}</p>
-                            <p class="mt-3 w-100 float-left text-center"><strong
-                                > {{url}}</strong></p>
+                            <h5 class="card-title"> {{this.name}}</h5>
+                            <p>
+                            {{this.speciality}}</p>
+                                <p>
+                            <a
+                                href="{{this.url}}"
+                            >{{this.url}}</a></p>
+                            
                         </div>
 
                     </div>
@@ -25,13 +27,9 @@
                         href="{{_id}}"
                         class="btn btn-success btn-block fa-lg gradient-custom-2 mt-3 p-2 center"
                     >More about</a>
-                    {{!-- <form action="/restaurants/{{_id}}/delete" method="POST">
-                        <button type="submit">Delete Restaurant</button>
-                    </form> --}}
                 </ul>
             </div>
         {{/each}}
-        {{! </div> }}
     </div>
 
 </div>

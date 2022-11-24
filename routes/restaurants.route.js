@@ -5,15 +5,15 @@ const { isLoggedIn } = require('../middleware/route-guard')
 
 //create restaurant
 router.get('/restaurants/create', (req, res) => {
-    res.render('restaurants/new', {user:req.session.user})
+    res.render('restaurants/new', { user: req.session.user })
 });
 
 // read restaurant
 router.get('/restaurants/read', (req, res) => {
-     Restaurant.find()
-        .then(restaurant => res.render('restaurants', { restaurant, user:req.session.user }))
+    Restaurant.find()
+        .then(restaurant => res.render('restaurants', { restaurant, user: req.session.user }))
         .catch(err => console.log(err))
-    res.render('restaurants/details',{user:req.session.user})
+    res.render('restaurants/details', { user: req.session.user })
 });
 
 
@@ -33,19 +33,19 @@ router.post('/restaurants/create', uploader.single("Image"), (req, res) => {
         street,
         houseNumber,
         area,
-        imgName, 
-        imgPath, 
+        imgName,
+        imgPath,
         publicId,
         owner: userId
     })
         .then(createdRestaurant => res.redirect('/profile'))
-        .catch(err => res.render("restaurants/new",{user:req.session.user}))
+        .catch(err => res.render("restaurants/new", { user: req.session.user }))
 });
 
 //get all restaurant
 router.get('/restaurants/rest', (req, res) => {
     Restaurant.find()
-        .then(restaurant => res.render('restaurants/rest', { restaurant ,user:req.session.user}))
+        .then(restaurant => res.render('restaurants/rest', { restaurant, user: req.session.user }))
         .catch(err => console.log(err))
 });
 
@@ -55,26 +55,26 @@ router.get('/restaurants/results', (req, res) => {
     const query = req.query.q
     console.log(query)
     const restaurantsFound = []
-    Restaurant.find({ }) 
-    .then(restaurantsFromDB => {  
-      if(restaurantsFromDB === null){
-          res.render("restaurants/results", { user:req.session.user , message : 'Sorry, no results found'/* , isLoggedIn */})
-          return
-        } 
-        else {
-        for (let restaurant of restaurantsFromDB){ 
-            console.log(restaurant)
-          if(restaurant.name.includes(query)) { 
-            restaurantsFound.push(restaurant)
-          }
-          else if (restaurant.speciality.includes(query)) { 
-            restaurantsFound.push(restaurant)
-          }
-        } 
-        res.render("restaurants/results", {restaurantsFound: restaurantsFound , user:req.session.user/* , isLoggedIn */ }) 
-      }
-    })
-    })
+    Restaurant.find({})
+        .then(restaurantsFromDB => {
+            if (restaurantsFromDB === null) {
+                res.render("restaurants/results", { user: req.session.user, message: 'Sorry, no results found'/* , isLoggedIn */ })
+                return
+            }
+            else {
+                for (let restaurant of restaurantsFromDB) {
+                    console.log(restaurant)
+                    if (restaurant.name.includes(query)) {
+                        restaurantsFound.push(restaurant)
+                    }
+                    else if (restaurant.speciality.includes(query)) {
+                        restaurantsFound.push(restaurant)
+                    }
+                }
+                res.render("restaurants/results", { restaurantsFound: restaurantsFound, user: req.session.user/* , isLoggedIn */ })
+            }
+        })
+})
 
 
 
@@ -86,7 +86,7 @@ router.get("/restaurants/:id", (req, res) => {
         // .populate("User")
         .then(restaurant => {
             console.log(restaurant)
-            res.render("restaurants/details", { restaurant, user:req.session.user })
+            res.render("restaurants/details", { restaurant, user: req.session.user })
         }
         )
         .catch(err => console.log(err))
@@ -101,7 +101,7 @@ router.get("/restaurants/:id/edit", async (req, res) => {
     try {
         const restaurant = await Restaurant.findById(id)
         console.log(restaurant)
-        res.render("restaurants/edit",{user:req.session.user}, restaurant)
+        res.render("restaurants/edit", { user: req.session.user, restaurant })
     } catch (err) {
         console.log(err)
     }
@@ -129,7 +129,7 @@ router.post("/restaurants/:id", (req, res, next) => {
         .then(data => {
 
             if (data.owner._id.toString() !== req.session.user._id) {
-                res.render("restaurants/rest",{user:req.session.user}, { message: "Oops! you can not Edit." })
+                res.render("restaurants/rest", { user: req.session.user }, { message: "Oops! you can not Edit." })
             } else {
                 Restaurant.findByIdAndUpdate(id, restaurant, { new: true })
                     .then(createdRestaurant => {
@@ -150,12 +150,12 @@ router.post('/restaurants/:id/delete', (req, res) => {
     Restaurant.findById(id)
         .then(data => {
             if (data.owner._id.toString() !== req.session.user._id) {
-                res.render("restaurants/rest", { message: "Oops! you can not delete." }, {user:req.session.user})
+                res.render("restaurants/rest", { message: "Oops! you can not delete." }, { user: req.session.user })
             } else {
 
                 Restaurant.findByIdAndRemove(id)
                     .then(deletedRestaurant => res.redirect('/profile'))
-                    console.log(deletedRestaurant)
+                console.log(deletedRestaurant)
             }
         })
         .catch(err => console.log(err))
