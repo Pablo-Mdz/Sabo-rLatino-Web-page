@@ -161,7 +161,13 @@ router.post('/restaurants/:id/delete', (req, res) => {
                 res.render("/", { user: req.session.user, message: "Oops! you can not delete." })
             } else {
                 Restaurant.findByIdAndRemove(id)
-                    .then(deletedRestaurant => res.redirect('/profile'))
+                    .then(deletedRestaurant => {
+                        if (deletedRestaurant.imgPath) {
+                            // delete the image on cloudinary
+                            cloudinary.uploader.destroy(deletedRestaurant.publicId)
+                        }
+                        res.redirect('/profile')
+                    })
                 console.log(deletedRestaurant)
             }
         })
