@@ -109,12 +109,12 @@ router.get("/restaurants/:id/edit", async (req, res) => {
 
 
 //edit post
-router.post("/restaurants/:id",/*  uploader.single("Image"), */ (req, res, next) => {
+router.post("/restaurants/:id",/*  uploader.single("Image"), */(req, res, next) => {
     const id = req.params.id
-    const { name, description, speciality, tel, url, email, street, houseNumber, area} = req.body
-  /*   const imgName = req.file.originalname
-    const imgPath = req.file.path
-    const publicId = req.file.filename   */    
+    const { name, description, speciality, tel, url, email, street, houseNumber, area } = req.body
+    /*   const imgName = req.file.originalname
+      const imgPath = req.file.path
+      const publicId = req.file.filename   */
     console.log(req.body)
     const restaurant = {
         name,
@@ -126,10 +126,10 @@ router.post("/restaurants/:id",/*  uploader.single("Image"), */ (req, res, next)
         street,
         houseNumber,
         area,
-       /*  imgName, 
-        imgPath, 
-        publicId, */
-           }
+        /*  imgName, 
+         imgPath, 
+         publicId, */
+    }
     Restaurant.findById(id)
         .then(data => {
             if (data.owner._id.toString() !== req.session.user._id) {
@@ -137,7 +137,7 @@ router.post("/restaurants/:id",/*  uploader.single("Image"), */ (req, res, next)
                 // res.render("restaurants/rest", { user: req.session.user, restaurant, message: "Oops! you can not Edit." })
             } else {
                 Restaurant.findByIdAndUpdate(id, restaurant, { new: true })
-                
+
                     .then(createdRestaurant => {
                         console.log(createdRestaurant)
 
@@ -160,8 +160,13 @@ router.post('/restaurants/:id/delete', (req, res) => {
                 res.render("/", { user: req.session.user, message: "Oops! you can not delete." })
             } else {
                 Restaurant.findByIdAndRemove(id)
-                    .then(deletedRestaurant => res.redirect('/profile'))
-                console.log(deletedRestaurant)
+                    .then(deletedRestaurant => {
+                        if (deletedRestaurant.imgPath) {
+                            // delete the image on cloudinary
+                            cloudinary.uploader.destroy(deletedRestaurant.publicId)
+                        }
+                        res.redirect('/profile')
+                    })
             }
         })
         .catch(err => console.log(err))
