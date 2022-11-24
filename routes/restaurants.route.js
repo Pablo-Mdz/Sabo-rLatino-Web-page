@@ -137,7 +137,6 @@ router.post("/restaurants/:id",/*  uploader.single("Image"), */ (req, res, next)
                 // res.render("restaurants/rest", { user: req.session.user, restaurant, message: "Oops! you can not Edit." })
             } else {
                 Restaurant.findByIdAndUpdate(id, restaurant, { new: true })
-
                 
                     .then(createdRestaurant => {
                         console.log(createdRestaurant)
@@ -161,21 +160,12 @@ router.post('/restaurants/:id/delete', (req, res) => {
                 res.render("/", { user: req.session.user, message: "Oops! you can not delete." })
             } else {
                 Restaurant.findByIdAndRemove(id)
-                    .then(deletedRestaurant => {
-                        if (deletedRestaurant.imgPath) {
-                            // delete the image on cloudinary
-                            cloudinary.uploader.destroy(deletedRestaurant.publicId)
-                        }
-                        res.redirect('/profile')
-                    })
+                    .then(deletedRestaurant => res.redirect('/profile'))
                 console.log(deletedRestaurant)
             }
         })
         .catch(err => console.log(err))
 });
-
-//search
-
 
 
 
