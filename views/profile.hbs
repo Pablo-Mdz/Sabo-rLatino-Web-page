@@ -3,8 +3,7 @@
     <h2>Hello, and wellcome {{user.username}}</h2>
     <div class="container">
             <a
-                class="btn btn-success btn-block fa-lg gradient-custom-2 mb-3 center"href="/restaurants/create">Create a new restaurants</a>
-                   
+                class="btn btn-success btn-block fa-lg gradient-custom-2 mb-3 center"href="/restaurants/create">Create a new restaurant</a>        
         </div>
 
 
@@ -13,7 +12,7 @@
     <div class="row mr-3">
         {{! <div class="row "> }}
         {{#each restaurant}}
-            <div class="col-sm-12 col-md-4 card">
+            <div class="col-sm-12 col-md-4 card my-2">
                 <ul>
                     <div class="card profile-card-5">
                         <div class="card-img-block">
@@ -24,11 +23,9 @@
                             />
                         </div>
                         <div class="card-body pt-0">
-                            <h5 class="card-title"> {{name}}</h5>
-                            <p class="card-text">
-                                {{this.description}}</p>
-                            <p class="mt-3 w-100 float-left text-center"><strong
-                                > {{url}}</strong></p>
+                            <h5 class="card-title"> {{this.name}}</h5>
+                            {{!-- <p class="card-text">
+                                {{this.description}}</p> --}}
                             <p> {{this.speciality}}</p>
             <p> {{this.tel}} </p>
            <p><a href="{{this.url}}" >{{this.url}}</a></p>
@@ -39,19 +36,8 @@
 
                     </div>
                      <a href="/restaurants/{{this._id}}" class="btn btn-warning btn-block fa-lg gradient-custom-2 mt-3 mb-3 center">More about</a>
-                     {{!-- <form action="/restaurants/read" method="get">
-        <button type="submit">read Restaurant</button>
-    </form> --}}
-                   
                 </ul>
             </div>
         {{/each}}
-        {{! </div> }}
     </div>
 
-<div class="block">
-    <form action=""></form>
-    <a class="btn btn-white-50 btn-block fa-lg gradient-custom-2 mb-3 center" href="/">Home</a>
-    <a class="btn btn-warning-50 btn-block fa-lg gradient-custom-2 mb-3 center" href="/auth/logout">Logout</a>
-
-</div>

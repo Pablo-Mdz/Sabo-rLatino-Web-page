@@ -2,13 +2,13 @@
 
     <div class="container">
     <form
-        action="/restaurants/{{_id}}" class='container' method="POST">
+        action="/restaurants/{{restaurant._id}}" class='container' method="POST">
         <div class="row">
             <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
                     type="text"
                     name="name"
-                    value="{{name}}"
+                    value="{{restaurant.name}}"
                     class="form-control"
                     id="name"
                     placeholder="Name"
@@ -22,7 +22,7 @@
                 <input
                     type="text" name="speciality"
                placeholder="Speciality"
-               value="{{speciality}}"
+               value="{{restaurant.speciality}}"
                     class="form-control"
                     data-rule="minlen:4"
                     data-msg="Please enter at least 4 chars"
@@ -33,7 +33,7 @@
             <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
                    type="text" placeholder="telefono" name="tel" 
-                   value="{{tel}}"
+                   value="{{restaurant.tel}}"
                     class="form-control"
                     data-rule="minlen:4"
                     data-msg="Please enter at least 4 chars"
@@ -45,7 +45,7 @@
                 <input
                    type="text" name="url" placeholder="Web Page"
                     class="form-control"
-                    value="{{url}}"
+                    value="{{restaurant.url}}"
                     data-rule="minlen:4"
                     data-msg="Please enter at least 4 chars"
                 />
@@ -55,7 +55,7 @@
             <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
                     type="email" name="email"
-                     value="{{email}}"
+                     value="{{restaurant.email}}"
                     class="form-control"
                     placeholder="Email"
                     data-rule="minlen:4"
@@ -67,7 +67,7 @@
             <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
                     type="text" name="street"
-                    value="{{street}}"
+                    value="{{restaurant.street}}"
                     class="form-control"
                     placeholder="Street"
                     data-rule="minlen:4"
@@ -79,7 +79,7 @@
             <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
                    type="number" name="houseNumber"
-                   value="{{houseNumber}}"
+                   value="{{restaurant.houseNumber}}"
                     class="form-control"
                     name="people"
                     id="people"
@@ -93,7 +93,7 @@
                 <input
                     type="text"
                      placeholder="Postal Code and City"
-                    value="{{area}}"
+                    value="{{restaurant.area}}"
                     name="Area"
                      class="form-control"
                      data-rule="minlen:4"
@@ -118,7 +118,7 @@
             <textarea
                 class="form-control"
               name="description"
-               value="{{description}}"
+               value="{{restaurant.description}}"
                 rows="5"
                 placeholder="Description"
             ></textarea>
@@ -128,7 +128,7 @@
      
     </form>
 
-    <form action="/restaurants/{{_id}}/delete" method="POST">
+    <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
         <button class="btn btn-danger btn-block fa-lg gradient-custom-2  p-2 center" onclick="return confirm('Are you sure to delete?')" type="submit">Delete Restaurant</button>
     </form>
 
