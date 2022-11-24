@@ -100,7 +100,7 @@ router.get("/restaurants/:id/edit", async (req, res) => {
     Restaurant.findById(id)
     try {
         const restaurant = await Restaurant.findById(id)
-        console.log(restaurant)
+        // console.log(restaurant)
         res.render("restaurants/edit", { user: req.session.user, restaurant })
     } catch (err) {
         console.log(err)
@@ -129,7 +129,8 @@ router.post("/restaurants/:id", (req, res, next) => {
         .then(data => {
 
             if (data.owner._id.toString() !== req.session.user._id) {
-                res.render("restaurants/rest", { user: req.session.user }, { message: "Oops! you can not Edit." })
+                console.log(err)
+                // res.render("restaurants/rest", { user: req.session.user, restaurant, message: "Oops! you can not Edit." })
             } else {
                 Restaurant.findByIdAndUpdate(id, restaurant, { new: true })
                     .then(createdRestaurant => {
@@ -150,7 +151,7 @@ router.post('/restaurants/:id/delete', (req, res) => {
     Restaurant.findById(id)
         .then(data => {
             if (data.owner._id.toString() !== req.session.user._id) {
-                res.render("restaurants/rest", { message: "Oops! you can not delete." }, { user: req.session.user })
+                res.render("/", { user: req.session.user, message: "Oops! you can not delete." })
             } else {
 
                 Restaurant.findByIdAndRemove(id)

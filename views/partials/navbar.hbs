@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg text-white">
+<nav class=" navbar navbar-expand-lg text-white">
     <div class="container-fluid">
         <img src="../images/saborlatino.png" id="navbar-brandi" />
 
@@ -21,33 +21,33 @@
                         aria-current="page"
                         href="/"
                     >Home</a>
-                <li class="nav-item">
-                    <a class="nav-link" href="/restaurants/rest">All restaurants</a>
+                <li class="nav-item mx-2">
+                    <a class="nav-link " href="/restaurants/rest">All restaurants</a>
                 </li>
                     {{#if user}}
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mx-2">
                     <a class="nav-link" href="/aboutus">About us</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mx-2">
                     <a class="nav-link" href="/profile">Profile</a>
                 </li>
                
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link" href="/auth/logout">Logout</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link" href="/profile"><strong>Wellcome {{user.username}}</strong> </a>
                     </li>
                 
                 {{else}}
-                  <li class="nav-item">
+                  <li class="nav-item mx-2">
                     <a class="nav-link" href="/aboutus">About us</a>
                 </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link" href="/auth/login">Login</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link" href="/auth/signup">Signup</a>
                     </li>
                 {{/if}}
@@ -68,7 +68,7 @@
                     name="q"
                 />
                 <button
-                    class="btn btn-outline-success"
+                    class="btn btn-outline-success mx-2"
                     type="submit"
                 >Search</button>
             </form>

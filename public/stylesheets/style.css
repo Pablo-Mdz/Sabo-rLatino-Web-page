@@ -56,28 +56,24 @@ Pantone 2339 C
 Hex: #F09491
 RGB: (240,148,145) */
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 
 body {
-    color:black;
+    color: black;
     box-sizing: border-box;
     font-weight: lighter;
     text-align: center;
     margin: 0;
     padding: 0;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
 }
 #navbar-brandi {
-   width:  120px;
+    width: 120px;
 }
-
 
 .block {
     display: flex;
     flex-direction: column;
-  
-
 }
 .logo-login {
     width: 400px;
@@ -90,10 +86,9 @@ body {
     background-position: center;
     border: none;
     margin-top: 0;
-    
 }
 button {
-    color: rgb(252,174,187)
+    color: rgb(252, 174, 187);
 }
 .titles h1 {
     font-size: 50px;
@@ -103,7 +98,7 @@ button {
 }
 
 #container-fluid {
-    color: rgb(252,174,187);
+    color: rgb(223, 184, 190);
 }
 
 p {
@@ -114,10 +109,10 @@ img {
     width: 20%;
 }
 .card-img {
-     width: 100%;
-     height: 15vw;
-     object-fit: cover;
-    }
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
 
 /* body {
     padding: 50px;
