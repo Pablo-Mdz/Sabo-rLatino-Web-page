@@ -19,9 +19,14 @@ body {
     margin-bottom: 50px;
 }
 .homeImg img {
-
     border-radius: 30px;
     box-shadow: 3px 3px 20px black;
+}
+
+.homeImg2 img {
+    border-radius: 30px;
+    box-shadow: 3px 3px 20px black;
+    margin: 20px;
 }
 
 .category img {
@@ -101,6 +106,7 @@ footer a {
     text-align: right;
     text-decoration: none;
 }
+
 
 /* body {
     padding: 50px;
