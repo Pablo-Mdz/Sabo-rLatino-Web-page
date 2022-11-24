@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Restaurant = require("../models/restaurant.model");
 /* GET home page */
 router.get("/", (req, res, next) => {
-    res.render("index");
+    res.render("index", {user:req.session.user});
 });
 
 router.get("/profile", (req, res, next) => {
@@ -20,7 +20,7 @@ router.get('/restaurants/:id/delete', (req, res) => {
     Restaurant.find({owner : userId})
 
         .then(restaurant => {
-                res.render("profile")
+                res.render("profile",{user:req.session.user})
                 Restaurant.findByIdAndRemove(id)
                 .then(deletedRestaurant => res.redirect('/profile'))
             }
@@ -32,7 +32,7 @@ router.get('/restaurants/:id/delete', (req, res) => {
 
 
 router.get("/aboutus", (req, res) => {
-    res.render("aboutus")
+    res.render("aboutus",{user:req.session.user})
 })
 
 

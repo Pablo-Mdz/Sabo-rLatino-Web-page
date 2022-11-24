@@ -4,7 +4,7 @@
     <form
         action="/restaurants/{{_id}}" class='container' method="POST">
         <div class="row">
-            <div class="col-lg-4 col-md-6 form-group">
+            <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
                     type="text"
                     name="name"
@@ -18,7 +18,7 @@
                 <div class="validate"></div>
             </div>
             
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+            <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
                     type="text" name="speciality"
                placeholder="Speciality"
@@ -92,7 +92,7 @@
             <div class="col-lg-4 col-md-6 form-group mt-3">
                 <input
                     type="text"
-                    placeholder="area"
+                     placeholder="Postal Code and City"
                     value="{{area}}"
                     name="Area"
                      class="form-control"
@@ -113,24 +113,12 @@
             ></textarea>
             <div class="validate"></div>
         </div>
-        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 center" type="submit">Save changes</button>
-        {{!-- <a href="restaurants/rest" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 center" >
-        Save</a> --}}
-
-        
-        {{!-- <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your booking request was sent. We will
-                call back or send an Email to confirm your reservation. Thank
-                you!</div>
-        </div> --}}
-        <div class="text-center"><button type="submit">Save changes</button></div>
-
+        <button class="btn btn-success btn-block fa-lg gradient-custom-2 mt-3  p-2 center" type="submit">Save changes</button>
+     
     </form>
 
     <form action="/restaurants/{{_id}}/delete" method="POST">
-        <button type="submit">Delete Restaurant</button>
+        <button class="btn btn-danger btn-block fa-lg gradient-custom-2  p-2 center" onclick="return confirm('Are you sure to delete?')" type="submit">Delete Restaurant</button>
     </form>
 
 </div>
