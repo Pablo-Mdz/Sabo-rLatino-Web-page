@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 
 body {
@@ -78,6 +79,7 @@ img {
     height: 15vw;
     object-fit: cover;
 }
+
 
 footer {
     background-color: rgb(245, 247, 248);
@@ -221,3 +223,4 @@ ul li {
 #logout-form button {
     width: 120px;
 } */
+
