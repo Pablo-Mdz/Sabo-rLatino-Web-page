@@ -64,7 +64,7 @@ router.get('/restaurants/results', (req, res) => {
             else {
                 for (let restaurant of restaurantsFromDB) {
                     console.log(restaurant)
-                    if (restaurant.name.includes(query)) {
+                    if (restaurant.name.toLowerCase().includes(query.toLowerCase())) {
                         restaurantsFound.push(restaurant)
                     }
                     else if (restaurant.speciality.includes(query)) {
